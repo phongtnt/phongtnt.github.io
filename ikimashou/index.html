@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PhongTNT</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#eef3f6;--card:#ffffff;--muted:#98a0a6;--accent:#2b9ed8;--soft:#e6f2fb}
+    *{box-sizing:border-box}
+    body{font-family:Inter,system-ui,Arial,sans-serif;margin:0;background:var(--bg);color:#111}
+    /* Header */
+    .topbar{position:fixed;left:0;right:0;top:0;height:72px;backdrop-filter:blur(6px);background:rgba(255,255,255,0.85);display:flex;align-items:center;justify-content:space-between;padding:12px 48px;z-index:30;border-bottom-left-radius:12px;border-bottom-right-radius:12px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:700;color:#0b6ea8}
+    .brand .logo{width:34px;height:34px;background:var(--soft);display:inline-grid;place-items:center;border-radius:8px}
+    .nav{display:flex;gap:28px;align-items:center}
+    .nav a, .nav a:visited, .nav a:hover { text-decoration: none; color: inherit; }
+    .search{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;background:var(--soft);border-radius:10px}
+
+    /* Hero */
+    .hero{height:360px;background-image:url('scr/background.png');background-size:cover;background-position:center;filter:contrast(0.9);border-bottom-left-radius:10px;border-bottom-right-radius:10px;margin-top:72px}
+    .hero::after{content:'';display:block;height:100%;background:linear-gradient(180deg,rgba(0,0,0,0.0) 30%, rgba(10,20,30,0.45) 100%);border-bottom-left-radius:10px;border-bottom-right-radius:10px}
+
+    /* Layout */
+   .container {
+      max-width:1100px;
+      /* bỏ margin âm ở đây */
+      margin: 40px auto 60px; /* hoặc 0 auto 60px */
+      display:grid;
+      grid-template-columns:280px 1fr;
+      gap:28px;
+      padding:0 20px;
+    }
+
+
+    /* Profile card */
+    .profile{background:var(--card);padding:18px;border-radius:14px;box-shadow:0 6px 18px rgba(20,30,40,0.06)}
+    .avatar{width:100%;border-radius:12px;overflow:hidden}
+    .avatar img{display:block;width:100%;height:auto}
+    .profile h3{text-align:center;margin:12px 0 6px}
+    .profile p{color:var(--muted);font-size:14px;text-align:center}
+    .socials{display:flex;justify-content:center;gap:12px;margin-top:12px}
+    .socials a{width:36px;height:36px;border-radius:10px;display:inline-grid;place-items:center;background:var(--soft);text-decoration:none}
+
+    /* Posts */
+    .posts{display:flex;flex-direction:column;gap:18px}
+    .post-card{background:var(--card);padding:20px;border-radius:14px;box-shadow:0 6px 18px rgba(20,30,40,0.04);display:grid;grid-template-columns:1fr 120px;gap:18px;align-items:center}
+    .post-card--small{grid-template-columns:1fr 140px}
+    .post-title{font-size:24px;margin:0 0 10px}
+    .meta{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:13px;margin-bottom:8px}
+    .badge{display:inline-flex;align-items:center;gap:8px;padding:6px 9px;background:var(--soft);border-radius:999px;font-weight:600;color:#2e6b8f}
+    .excerpt{color:var(--muted);font-size:14px}
+    .post-thumb img{width:100%;height:100%;object-fit:cover;border-radius:10px}
+
+    /* Tất cả link không gạch dưới + màu đen */
+    a,
+    a:visited,
+    a:hover,
+    a:active {
+      text-decoration: none;  /* bỏ gạch dưới */
+      color: #000;            /* màu đen */
+    }
+    
+    /* Floating right arrow as control */
+    .float-control{position:relative}
+    .float-control .arrow{position:absolute;right:-28px;top:80px;background:linear-gradient(180deg,#f6fbff,#eaf7ff);width:44px;height:140px;border-radius:12px;display:grid;place-items:center;color:var(--accent);box-shadow:0 6px 18px rgba(20,30,40,0.05)}
+
+    /* responsive */
+    @media (max-width:980px){.container{grid-template-columns:1fr;margin-top:-40px}.hero{height:240px}.topbar{padding:10px 18px}.float-control .arrow{display:none}.post-card{grid-template-columns:1fr}.post-card--small{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo"></div>
+      <div>PhongTNT</div>
+    </div>
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a href="../about/index.html">About</a>
+      <a href="https://github.com/phongtnt">GitHub</a>
+    </nav>
+  </header>
+
+  <section class="hero" aria-hidden="true"></section>
+
+  <main class="container">
+    <aside class="profile">
+      <div class="avatar">
+        <img src="..//scr/demo-avatar.png" alt="avatar">
+      </div>
+      <h3>PhongTNT</h3>
+      <p>Interests: science, programming, computers, diy, etc.</p>
+      <div class="socials">
+        <a href="https://github.com/phongtnt">➜</a>
+      </div>
+    </aside>
+
+    <section class="posts">
+      <div class="post-card float-control">
+        <div>
+          <img width="825" height="267" alt="ODFSGJ" src="https://github.com/user-attachments/assets/dd155973-f0d5-4563-9d40-60489c6623de" />
+          <img width="401.5" height="250" alt="JnA8UV" src="https://github.com/user-attachments/assets/d510c966-515d-4000-a3ef-d85fd0fcd24d" />
+
+          <h1>Main Character</h1>
+          <img width="192" height="180" alt="+sNbAV" src="https://github.com/user-attachments/assets/6393caab-66c5-4e16-8416-ada09c4a8c86" />
+          <img width="192" height="180" alt="J+NYD7" src="https://github.com/user-attachments/assets/ef3b8907-27de-4761-ba89-e3963f91f69c" />
+          <img width="192" height="180" alt="yLFDB_" src="https://github.com/user-attachments/assets/16ea24bd-4de8-4328-8f69-254db3485547" />
+
+          <h2>Other Character</h2>
+          <img width="192" height="180" alt="CRDyHw" src="https://github.com/user-attachments/assets/a753e942-59b3-4973-ac46-11d951a376b6" />
+          <img width="192" height="108" alt="CXTha+" src="https://github.com/user-attachments/assets/fc0f4425-772a-4853-8f48-79e17e92f91c" />
+          <img width="192" height="108" alt="f12BEB" src="https://github.com/user-attachments/assets/c41785dc-2c2f-4d9a-a4d5-213fb6b7e1f4" />
+          <img width="192" height="108" alt="q0qJvw" src="https://github.com/user-attachments/assets/79b297d9-6121-48d3-a955-15bb500734fb" />
+
+          <img width="347" height="219" alt="1u_Udz" src="https://github.com/user-attachments/assets/eb12cd83-4dd5-41d6-ae38-67df80273789" />
+          <img width="773" height="484" alt="0EEN5c" src="https://github.com/user-attachments/assets/66109778-8658-495d-a8a6-61814c6d5690" />
+          <img width="347" height="194" alt="Gaotab" src="https://github.com/user-attachments/assets/8dd8b012-f59d-4326-9b2e-329b6dfdcf41" />
+          <img width="347" height="193" alt="Jpf9kf" src="https://github.com/user-attachments/assets/d714e8ab-165d-4744-9010-06cee2140a95" />
+          <img width="803" height="500" alt="FhPZ+8" src="https://github.com/user-attachments/assets/0291898c-602b-45cf-adc0-95cbf03a3ba6" />
+
+          <h2>Main Character Image</h2>
+          <img width="641" height="359" alt="K6_d0C" src="https://github.com/user-attachments/assets/0d915d4b-95e3-43f7-9cba-f4a48747df09" />
+          <img width="829" height="463" alt="Totvcj" src="https://github.com/user-attachments/assets/180439a1-1109-492a-9a02-452e3c520ada" />
+          <img width="863" height="477" alt="V6n_Eq" src="https://github.com/user-attachments/assets/2ea77d12-9339-4124-baa7-bdfdc7003f93" />
+
+          <h2>Screenshot</h2>
+          <img width="185.6" height="104.4" alt="mDP" src="https://github.com/user-attachments/assets/ac4cb30d-5993-4d59-b96e-746f79dad93d" />
+          <img width="185.6" height="104.4" alt="mNAOSR" src="https://github.com/user-attachments/assets/269b58bc-a847-4271-a1f5-f350a6bea296" />
+
+          <h2>Introduction</h2>
+          <p>In a land of cities among the vast wilderness, dreams of the past were lost to time, until one adventure seeking soul kept their childhood promise.</p>
+          <p>&quot;It&#39;s always been my dream to go on an adventure since I was little. As I grow older, I feel like the opportunity to set off on that adventure has finally arrived.  From my hometown of Montreal, Quebec, I&#39;ll be heading west towards Vancouver, British Columbia, stopping at all the places in-between.&quot;</p>
+          <p>&quot;But in the short span of time between my childhood and fast-approaching adulthood, I wonder... &quot;</p>
+          <p>What is the Canadian Dream?</p>
+          <p>A moe and nostalgic story about taking opportunities in life, chasing your dreams, and singing songs along the way. Join your friends on trip across an anime-inspired Canada, and rediscover the true meaning of adventure!</p>
+          <p>&quot;Because we&#39;re together, every stop of the way!&quot;</p>
+          <h2>Features</h2>
+          <p>A sugar-sweet story about friendship and perseverance,  set across the familiar setting of Canada.</p>
+          <p>Countless of cute sprites made by media player!</p>
+          <p>Beautiful backgrounds made from actual, real-life photographs! </p>
+          <p>A soft and cozy kinetic novel experience, with minor branches at times.</p>
+          <p>Spatial audio for a great listening experience with headphones!</p>
+          <p>A total songs with special scenes centered around them! </p>
+          <p>Abso-postively the cutest characters to ever grace a visual novel!</p>
+          <p>Combining Japanese visual novel features such as voice acting, a cute anime art style alongside beautiful backgrounds, with a familiar Canadian setting. Recommended for people unfamiliar with the visual novel medium, or those who want a lighter, feel-good story.</p>
+          <h2>Coming soon,Ikimashou!</h2>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
