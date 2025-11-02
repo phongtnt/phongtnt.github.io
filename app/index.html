@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chatbot Giáo Viên Pro — Beauty Fix UI</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="brand">
+        <div class="logo">🎒</div>
+        <div class="title">Trợ lý Giáo Viên Pro</div>
+        <div class="subtitle">Gemini Flash • Song ngữ VI/EN</div>
+      </div>
+      <div class="tools">
+        <button id="btnKey" class="tool" title="API Key">🔑</button>
+        <button id="btnExport" class="tool" title="Export">📄</button>
+        <button id="btnTemplates" class="tool" title="Templates">📚</button>
+      </div>
+    </header>
+
+    <main class="main">
+      <aside class="sidebar">
+        <div class="panel">
+          <h4>Lịch sử</h4>
+          <div id="historyList" class="historyList"></div>
+          <div class="history-actions">
+            <button id="btnExportJSON" class="small">Xuất JSON</button>
+            <button id="btnClearHistory" class="small danger">Xóa</button>
+          </div>
+        </div>
+        <div id="templatesPanel" class="panel templates" hidden>
+          <h4>Mẫu nhanh</h4>
+          <button class="tpl">Soạn giáo án 45 phút</button>
+          <button class="tpl">Tạo 10 câu trắc nghiệm</button>
+          <button class="tpl">Tóm tắt bài học</button>
+          <button class="tpl">Gợi ý hoạt động nhóm</button>
+        </div>
+      </aside>
+
+      <section class="chat-section">
+        <div id="chatBox" class="chatBox" role="log" aria-live="polite"></div>
+
+        <div class="composer">
+          <div class="composer-row">
+            <input id="inputField" placeholder="Nhập yêu cầu / Type your request..." autocomplete="off" />
+            <button id="btnMic" class="round" title="Speech-to-Text">🎤</button>
+            <button id="btnSpeak" class="round" title="Text-to-Speech">🔊</button>
+            <button id="btnSend" class="primary">Gửi</button>
+          </div>
+          <div class="quick">
+            <button class="quickBtn">Soạn giáo án</button>
+            <button class="quickBtn">Tạo đề trắc nghiệm</button>
+            <button class="quickBtn">Dịch sang EN</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">© Chatbot Giáo Viên • Gemini Flash</footer>
+    <footer class="footer">© Make by (miHeYo)Phongtnt</footer>
+  </div>
+
+  <!-- modal for API key -->
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-card">
+      <h3>Nhập API Key / Paste your API Key</h3>
+      <input id="apiKeyInput" placeholder="Paste Google API Key (AIza...)" />
+      <div class="modal-actions">
+        <button id="saveKey" class="primary">Lưu</button>
+        <button id="cancelKey" class="small">Hủy</button>
+      </div>
+      <p class="note">Key được lưu vào localStorage chỉ trên máy này.</p>
+    </div>
+  </div>
+
+  <script src="script222.js"></script>
+</body>
+</html>
